@@ -5,7 +5,7 @@ pub enum BinPowError {
 }
 
 pub fn binpow(mut a: i64, mut b: i64, m: i64) -> Result<i64, BinPowError> {
-    if a.abs() > 1000 || b < 0 || m < 1 || b.max(m) > 1000 {
+    if a < -1000 || b < 0 || m < 1 || a.max(b).max(m) > 1000 {
         Err(BinPowError::InvalidInput)
     } else if a == 0 && b == 0 {
         Err(BinPowError::Indeterminate)
